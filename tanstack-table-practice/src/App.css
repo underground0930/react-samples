@@ -52,8 +52,8 @@ white-space: nowrap;
   position: absolute;
   top: 0;
   height: 100%;
-  width: 5px;
-  background: rgba(0, 0, 0, 0.5);
+  width: 7px;
+  background: rgba(255, 255, 255, 0.2);
   cursor: col-resize;
   user-select: none;
   touch-action: none;
@@ -68,8 +68,7 @@ white-space: nowrap;
 }
 
 .resizer.isResizing {
-  background: blue;
-  opacity: 1;
+  background: rgba(255, 255, 255, 0.4);
 }
 
 @media (hover: hover) {

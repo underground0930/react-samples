@@ -3,11 +3,8 @@ import './App.css'
 
 import {
   useReactTable,
-  ColumnResizeMode,
   getCoreRowModel,
-  ColumnDef,
   flexRender,
-  ColumnResizeDirection,
   createColumnHelper,
 } from '@tanstack/react-table'
 
@@ -26,7 +23,7 @@ const defaultData: Person[] = [
     lastName: 'linsley',
     age: 24,
     visits: 100,
-    status: 'あああああああ　あああああああああああ　ああああああああああああああ　あああああああああああああ',
+    status: 'あああああああ あああああああああああ　ああああああああああああああ　あああああああああああああ',
     progress: 50,
   },
   {
@@ -34,7 +31,7 @@ const defaultData: Person[] = [
     lastName: 'miller',
     age: 40,
     visits: 40,
-    status: 'Single',
+    status: 'よろしくお願いします。よろしくお願いします。よろしくお願いします。よろしくお願いします。',
     progress: 80,
   },
   {
@@ -42,7 +39,7 @@ const defaultData: Person[] = [
     lastName: 'dirte',
     age: 45,
     visits: 20,
-    status: 'Complicated',
+    status: 'よろしくお願いします。よろしくお願いします。よろしくお願いします。よろしくお願いします。',
     progress: 10,
   },
 ]
@@ -52,23 +49,23 @@ const columnHelper = createColumnHelper<Person>()
 const columns = [
   columnHelper.accessor('firstName',{
     cell: info => info.getValue(),
-    size: 100,
+    size: 200,
   }),
   columnHelper.accessor('lastName',{
     cell: info => info.getValue(),
-    size: 100,
+    size: 300,
   }),
   columnHelper.accessor('age',{
     cell: info => info.getValue(),
-    size: 100,
+    size: 300,
   }),
   columnHelper.accessor('visits',{
     cell: info => info.getValue(),
-    size: 400,
+    size: 300,
   }),
   columnHelper.accessor('status',{
     cell: info => info.getValue(),
-    size: 100,
+    size: 300,
   }),
 ]
 
@@ -89,7 +86,7 @@ function Test() {
     <table {
       ...{
         style: {
-          width: table.getCenterTotalSize()
+          width: table.getTotalSize()
         }
       }
     }>
