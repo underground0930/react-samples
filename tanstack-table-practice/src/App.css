@@ -43,6 +43,9 @@ th,
 td,
 .td {
   height: 30px;
+  overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
 }
 
 .resizer {

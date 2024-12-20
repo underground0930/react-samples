@@ -26,7 +26,7 @@ const defaultData: Person[] = [
     lastName: 'linsley',
     age: 24,
     visits: 100,
-    status: 'In Relationship',
+    status: 'In Relationship In Relationship In Relationship In Relationship In Relationship In Relationship In Relationship In Relationship ',
     progress: 50,
   },
   {
