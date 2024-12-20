@@ -78,8 +78,8 @@ function Test() {
     data,
     columns,
     getCoreRowModel: getCoreRowModel(),
-    columnResizeMode: 'onChange',
-    columnResizeDirection: 'ltr',
+      columnResizeMode: 'onChange',
+      columnResizeDirection: 'ltr',
   })
 
   return (
