@@ -5,8 +5,10 @@ function App() {
 
   return (
     <>
-    {/* <Sample /> */}
-    <Test />
+    <div className='pt-[300px]'>
+      {/* <Sample /> */}
+      <Test />
+    </div>
     </>
   )
 }
