@@ -1,7 +1,7 @@
 import type { Meta } from '@storybook/nextjs-vite';
-import { fn } from '@storybook/test';
 import type React from 'react';
 import { useState } from 'react';
+import { fn } from 'storybook/test';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';

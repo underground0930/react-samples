@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
-import { fn } from '@storybook/test';
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { fn } from 'storybook/test';
 
 import { Radio, RadioGroupWithRHF, RadioWithLabel } from './radio';
 

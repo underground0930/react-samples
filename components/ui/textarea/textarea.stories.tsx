@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
-import { fn } from '@storybook/test';
 import { useForm } from 'react-hook-form';
+import { fn } from 'storybook/test';
 
 import { ErrorText } from '@/components/ui/error-text/error-text';
 
