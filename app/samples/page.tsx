@@ -1,7 +1,7 @@
 import { PageContent } from './_components/page.content';
 
-export const Home = () => {
+export const SamplesPage = () => {
   return <PageContent />;
 };
 
-export default Home;
+export default SamplesPage;
