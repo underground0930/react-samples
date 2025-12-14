@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
+import { fn } from '@storybook/test';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 
@@ -136,9 +137,9 @@ export const WithReactHookFormRegister: Story = {
       },
     });
 
-    const onSubmit = (data: FormData) => {
-      alert(`Submitted: ${JSON.stringify(data)}`);
-    };
+    const onSubmit = fn((data: FormData) => {
+      console.log(`Submitted: ${JSON.stringify(data)}`);
+    });
 
     const currentValue = watch('shareTarget');
 
@@ -172,9 +173,9 @@ export const WithRadioGroupRHF: Story = {
       },
     });
 
-    const onSubmit = (data: FormData) => {
-      alert(`Submitted: ${JSON.stringify(data)}`);
-    };
+    const onSubmit = fn((data: FormData) => {
+      console.log(`Submitted: ${JSON.stringify(data)}`);
+    });
 
     const currentValue = watch('shareTarget');
 

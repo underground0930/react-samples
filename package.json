@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 5678",
+    "dev": "next dev -p 6666",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "storybook": "storybook dev -p 6006",
+    "storybook": "storybook dev -p 7777",
     "build-storybook": "storybook build",
     "prepare": "husky"
   },
@@ -36,6 +36,7 @@
     "@storybook/addon-docs": "10.1.8",
     "@storybook/addon-vitest": "10.1.8",
     "@storybook/nextjs-vite": "10.1.8",
+    "@storybook/test": "^8.6.14",
     "@tailwindcss/postcss": "4",
     "@types/node": "24.10.1",
     "@types/react": "19.2.7",

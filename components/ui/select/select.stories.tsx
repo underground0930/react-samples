@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
+import { fn } from '@storybook/test';
 import { useForm } from 'react-hook-form';
 
 import { ErrorText } from '@/components/ui/error-text/error-text';
@@ -166,9 +167,9 @@ export const WithReactHookFormDirect: Story = {
       },
     });
 
-    const onSubmit = (data: FormData) => {
-      alert(`Submitted: ${JSON.stringify(data, null, 2)}`);
-    };
+    const onSubmit = fn((data: FormData) => {
+      console.log(`Submitted: ${JSON.stringify(data, null, 2)}`);
+    });
 
     const departmentOptions: SelectOption[] = [
       { label: 'Engineering', value: 'engineering' },
@@ -219,9 +220,9 @@ export const WithReactHookFormWrapper: Story = {
       },
     });
 
-    const onSubmit = (data: FormData) => {
-      alert(`Submitted: ${JSON.stringify(data, null, 2)}`);
-    };
+    const onSubmit = fn((data: FormData) => {
+      console.log(`Submitted: ${JSON.stringify(data, null, 2)}`);
+    });
 
     return (
       <form onSubmit={handleSubmit(onSubmit)} className='w-[400px]'>
