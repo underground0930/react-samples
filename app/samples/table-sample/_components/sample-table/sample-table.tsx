@@ -70,33 +70,29 @@ export const SampleTable = () => {
   }, []);
 
   return (
-    <div className='relative w-full overflow-y-auto'>
-      <table className='relative min-w-full table-fixed'>
-        <thead className=''>
-          <tr className='sticky top-0 z-1'>
+    <table className='relative overflow-y-auto'>
+      <thead className=''>
+        <tr className='sticky top-0 z-1'>
+          {tableData.map((item) => (
+            <th key={item.id} className={tableThVariants({ className: item.width })}>
+              {item.label}
+            </th>
+          ))}
+        </tr>
+      </thead>
+      <tbody>
+        {arr.map((_, index) => (
+          <tr key={index}>
             {tableData.map((item) => (
-              <th key={item.id} className={tableThVariants({ className: item.width })}>
-                {item.label}
-              </th>
+              <td key={item.id} className={tableTdRootVariants()}>
+                <div className={tableTdInnerVariants({ clamp: item.clamp, className: item.width })}>
+                  <div>{item.text}</div>
+                </div>
+              </td>
             ))}
           </tr>
-        </thead>
-        <tbody>
-          {arr.map((_, index) => (
-            <tr key={index}>
-              {tableData.map((item) => (
-                <td key={item.id} className={tableTdRootVariants({ className: item.width })}>
-                  <div
-                    className={tableTdInnerVariants({ clamp: item.clamp, className: item.width })}
-                  >
-                    <div>{item.text}</div>
-                  </div>
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+        ))}
+      </tbody>
+    </table>
   );
 };
