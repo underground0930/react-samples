@@ -6,7 +6,6 @@ import globals from 'globals';
 import eslint from '@eslint/js';
 import nextConfig from 'eslint-config-next';
 import tseslint from 'typescript-eslint';
-import eslintConfigPrettier from 'eslint-config-prettier';
 import storybookPlugin from 'eslint-plugin-storybook';
 import eslintPluginBetterTailwindcss from 'eslint-plugin-better-tailwindcss';
 
@@ -30,7 +29,6 @@ export default [
       '**/.storybook/preview.ts',
       '**/.storybook/vitest.setup.ts',
       'package.json',
-      'src/api-generated/**/*.ts',
     ],
   },
   {
