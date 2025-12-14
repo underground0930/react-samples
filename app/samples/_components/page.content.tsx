@@ -8,7 +8,7 @@ export const PageContent = () => {
       <h1>Samples</h1>
       <ul>
         <li>
-          <Link href='/samples'>samplesページへ</Link>
+          <Link href='/samples/table-sample'>Table Sample</Link>
         </li>
       </ul>
     </div>

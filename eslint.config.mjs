@@ -113,6 +113,7 @@ export default [
         },
       ],
       'react/jsx-boolean-value': 'error',
+      'react-hooks/set-state-in-effect': 'off',
     },
   },
   {
