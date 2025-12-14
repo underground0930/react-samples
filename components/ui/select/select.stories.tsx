@@ -21,13 +21,7 @@ const meta = {
     layout: 'centered',
   },
   tags: ['autodocs'],
-  decorators: [
-    (Story) => (
-      <div className='w-[400px]'>
-        <Story />
-      </div>
-    ),
-  ],
+  decorators: [(Story) => <Story />],
   args: {
     options: sampleOptions,
     placeholder: 'Select an option',
