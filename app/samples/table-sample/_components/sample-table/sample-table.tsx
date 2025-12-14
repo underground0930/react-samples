@@ -3,65 +3,50 @@
 import { useEffect, useState } from 'react';
 import { tv } from 'tailwind-variants';
 
+import { cn } from '@/libs/cn';
+
 import { TABLE_DATA, TABLE_HEADERS, TableData } from './table.config';
-
-const tableThVariants = tv({
-  base: 'bg-gray-100 p-2',
-});
-
-const tableTdVariants = tv({
-  slots: {
-    root: 'p-2',
-    inner: '',
-  },
-  variants: {
-    clamp: {
-      none: {
-        inner: '',
-      },
-      one: {
-        inner: 'line-clamp-1',
-      },
-      two: {
-        inner: 'line-clamp-2',
-      },
-    },
-  },
-  defaultVariants: {
-    clamp: 'none',
-  },
-});
 
 const tableData = [
   {
     id: 1,
     label: '幅指定のみ',
-    text: '内容は折り返す'.repeat(10),
-    clamp: 'none',
+    clamp: '',
     width: 'w-[400px]',
   },
   {
     id: 2,
     label: '幅指定 + 1行まで',
-    text: '内容は省略される'.repeat(10),
-    clamp: 'one',
+    clamp: 'line-clamp-1',
     width: 'w-[700px]',
   },
   {
     id: 3,
     label: '幅指定 + 2行まで',
-    text: '内容は省略される'.repeat(20),
-    clamp: 'two',
+    clamp: 'line-clamp-2',
     width: 'w-[800px]',
   },
 ] as const;
 
-const arr = [...new Array(10)];
+const arr = [...new Array(10)].map((_, index) => {
+  return [
+    {
+      id: 1,
+      text: index % 2 === 0 ? '内容は折り返す'.repeat(10) : '内容は折り返す',
+    },
+    {
+      id: 2,
+      text: '幅指定 + 1行まで'.repeat(20),
+    },
+    {
+      id: 3,
+      text: '幅指定 + 2行まで'.repeat(20),
+    },
+  ];
+});
 
 export const SampleTable = () => {
   const [data, setData] = useState<TableData[]>([]);
-
-  const { root: tableTdRootVariants, inner: tableTdInnerVariants } = tableTdVariants();
 
   useEffect(() => {
     setTimeout(() => {
@@ -74,19 +59,21 @@ export const SampleTable = () => {
       <thead className=''>
         <tr className='sticky top-0 z-1'>
           {tableData.map((item) => (
-            <th key={item.id} className={tableThVariants({ className: item.width })}>
+            <th key={item.id} className={cn('bg-gray-100 p-2', item.width)}>
               {item.label}
             </th>
           ))}
         </tr>
       </thead>
       <tbody>
-        {arr.map((_, index) => (
-          <tr key={index}>
-            {tableData.map((item) => (
-              <td key={item.id} className={tableTdRootVariants()}>
-                <div className={tableTdInnerVariants({ clamp: item.clamp, className: item.width })}>
-                  <div>{item.text}</div>
+        {arr.map((row, x) => (
+          <tr key={x}>
+            {row.map((item, y) => (
+              <td key={item.id}>
+                <div className={tableData[y].width}>
+                  <div className='p-2'>
+                    <div className={cn(tableData[y].clamp)}>{item.text}</div>
+                  </div>
                 </div>
               </td>
             ))}
