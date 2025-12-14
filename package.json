@@ -13,8 +13,11 @@
   "dependencies": {
     "next": "16.0.10",
     "nuqs": "^2.8.5",
+    "radix-ui": "^1.4.3",
     "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "react-dom": "19.2.3",
+    "react-hook-form": "^7.68.0",
+    "tailwind-variants": "^3.2.2"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^4.1.3",
