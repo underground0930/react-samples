@@ -17,6 +17,7 @@ export function useClickOutside<T extends HTMLElement = HTMLElement>(
 
   useEffect(() => {
     if (!enabled) return;
+    const controller = new AbortController();
 
     const handleClickOutside = (event: MouseEvent | TouchEvent) => {
       const target = event.target as Node;
@@ -37,13 +38,11 @@ export function useClickOutside<T extends HTMLElement = HTMLElement>(
       handler(event);
     };
 
-    // mousedownとtouchstartの両方に対応
-    document.addEventListener('mousedown', handleClickOutside);
-    document.addEventListener('touchstart', handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside, { signal: controller.signal });
+    document.addEventListener('touchstart', handleClickOutside, { signal: controller.signal });
 
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-      document.removeEventListener('touchstart', handleClickOutside);
+      controller.abort();
     };
   }, [handler, enabled, excludeRefs]);
 
