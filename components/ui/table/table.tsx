@@ -1,15 +1,11 @@
-import { cn } from '@/libs/cn';
-
 export const TableWrapper = ({
   children,
-  height,
-  isScroll = true,
+  className,
 }: {
   children: React.ReactNode;
-  height?: string;
-  isScroll?: boolean;
+  className?: string;
 }) => {
-  return <div className={cn(height, isScroll && 'overflow-y-auto')}>{children}</div>;
+  return <div className={className}>{children}</div>;
 };
 
 export const Table = ({ children }: { children: React.ReactNode }) => {

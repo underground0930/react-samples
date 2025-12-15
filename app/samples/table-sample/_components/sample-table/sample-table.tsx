@@ -72,7 +72,7 @@ export const SampleTable = () => {
   }, []);
 
   return (
-    <TableWrapper height='h-[500px]'>
+    <TableWrapper className='h-full overflow-y-auto'>
       <Table>
         <TableHead>
           <TableRow>
