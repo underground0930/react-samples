@@ -1,9 +1,16 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { tv } from 'tailwind-variants';
 
-import { cn } from '@/libs/cn';
+import {
+  TableWrapper,
+  Table,
+  TableHead,
+  TableBody,
+  TableRow,
+  TableHeadCell,
+  TableCell,
+} from '@/components/ui/table';
 
 const tableHeadData: TableHeadType[] = [
   {
@@ -65,35 +72,33 @@ export const SampleTable = () => {
   }, []);
 
   return (
-    <div className='h-[500px] overflow-y-auto'>
-      <table className='relative'>
-        <thead className=''>
-          <tr className='sticky top-0 z-1'>
+    <TableWrapper height='h-[500px]'>
+      <Table>
+        <TableHead>
+          <TableRow>
             {tableHeadData.map((item) => (
-              <th key={item.id}>
-                <div className={cn('px-2', item.width)}>
-                  <div className='bg-gray-100 py-2'>{item.label}</div>
-                </div>
-              </th>
+              <TableHeadCell key={item.id} width={item.width}>
+                {item.label}
+              </TableHeadCell>
             ))}
-          </tr>
-        </thead>
-        <tbody>
+          </TableRow>
+        </TableHead>
+        <TableBody>
           {data.map((row, x) => (
-            <tr key={x}>
+            <TableRow key={x}>
               {row.map((item, y) => (
-                <td key={item.id}>
-                  <div className={tableHeadData[y].width}>
-                    <div className='p-2'>
-                      <div className={cn(tableHeadData[y].clamp)}>{item.text}</div>
-                    </div>
-                  </div>
-                </td>
+                <TableCell
+                  key={item.id}
+                  width={tableHeadData[y].width}
+                  clamp={tableHeadData[y].clamp}
+                >
+                  {item.text}
+                </TableCell>
               ))}
-            </tr>
+            </TableRow>
           ))}
-        </tbody>
-      </table>
-    </div>
+        </TableBody>
+      </Table>
+    </TableWrapper>
   );
 };
